@@ -6,18 +6,23 @@ session_start();
 
 /*Make constants using define*/
 /*we can call the name anywhere else in the file because we gave it a value*/
-define('client_id', c73d173254d844b89d8117954f97d9ee);
-define('client_secret', c73d173254d844b89d8117954f97d9ee);
+define('client_ID', '871b92afb12e4290b6162a24bceeb547');
+define('client_Secret', '3a0169d5e8b94ba799bdb8933c97c4e7');
 define('redirectURI', 'http://localhost/AppAcademyApi/index.php');
 define('ImageDirectory', 'pics/');
 
 
 ?>
 
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<!-- Creating a login for people to go and get approval for our web app to access their Instagram account 
+	After getting approval we are now going to have the information so we can play with it -->
+	<a href="https:api.instagram/oauth/authorize/?client=<?php echo clientID; ?>&redirect_url=<?php echo redirectURI ?>&response_type=code">LOGIN</a>
 
-
-<!-- CLIENT INFO
-CLIENT ID c73d173254d844b89d8117954f97d9ee
-CLIENT SECRET 971766cd8c4f4faf7b7a6ff36f32b68b0
-WEBSITE URL http://localhost/AppAcademyApi/index.php
-REDIRECT URI http://localhost/AppAcademyApi/index.php -->
+</body>
+</html>
