@@ -12,7 +12,7 @@ define('redirectURI', 'http://localhost/AppAcademyApi/index.php');
 define('ImageDirectory', 'pics/');
 
 
-?>
+?><!-- testing sourcetree -->
 
 <!DOCTYPE html>
 <html>
