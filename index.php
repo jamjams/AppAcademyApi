@@ -27,10 +27,14 @@ if (isset($_GET['code'])){
 	curl_setopt($curl, CURLOPT_POSTFIELDS, $access_token_settings);/*setting the POSTFIELDS to the array setup that we created*/
 	curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);/*true to return the transfer as a string of the return value of the curl_exec() instead of outputting it out directly*/
 	curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);/*false to stop the cURL from verifying the peers certificate. But in live work-production we want to set this true*/
-}
-$result=curl_exec($curl);
-curl_close();
 
+$result=curl_exec($curl);
+curl_close($curl);
+
+$results = json_decode($result,true);
+echo $results['user']['username'];
+}
+else{
 ?>
 
 <!DOCTYPE html>
@@ -45,3 +49,6 @@ curl_close();
 
 </body>
 </html>
+<?php
+}
+?>
