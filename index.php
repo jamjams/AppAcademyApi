@@ -21,12 +21,15 @@ if (isset($_GET['code'])){
 		'code' => $code
 		);
 	/*cURL is what we use in PHP, it's a library calls to other api's*/
-	$curl = curl_init($url);
+	$curl = curl_init($url);/*setting a cURL session and we put in $url because thats where we are getting the data from*/
+	/*sets an option onvthe given cURLsession handle*/
 	curl_setopt($curl, CURLOPT_POST, true);
-	curl_setopt($curl, CURLOPT_POSTFIELDS, $access_token_settings);
-	curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+	curl_setopt($curl, CURLOPT_POSTFIELDS, $access_token_settings);/*setting the POSTFIELDS to the array setup that we created*/
+	curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);/*true to return the transfer as a string of the return value of the curl_exec() instead of outputting it out directly*/
+	curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);/*false to stop the cURL from verifying the peers certificate. But in live work-production we want to set this true*/
 }
+$result=curl_exec($curl);
+curl_close();
 
 ?>
 
