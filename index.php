@@ -10,6 +10,23 @@ define('clientID', '871b92afb12e4290b6162a24bceeb547');
 define('clientSecret', '3a0169d5e8b94ba799bdb8933c97c4e7');
 define('redirectURI', 'http://localhost/AppAcademyApi/index.php');
 define('ImageDirectory', 'pics/');
+
+/*function that is going to connect to instagram*/
+function connectToInstagram($url){
+	/*a cURL handle returned by curl_init()*/
+	$ch = curl_init();
+
+	curl_setopt_array($ch, array(
+		CURLOPT_URL => $url,
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_SSL_VERIFYPEER => false,
+		CURLOPT_SSL_VERIFYHOST => 2,
+	));
+	$result = curl_exec($ch);
+	curl_close($ch);
+	return $result;
+
+}
 /*checks for a booliean, if it is true or not true*/
 if (isset($_GET['code'])){
 	$code = ($_GET['code']);
