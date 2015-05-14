@@ -29,11 +29,24 @@ function connectToInstagram($url){
 }
 /*Function to get userID cause userName doesn't allow us to get pictures!*/
 function getUserID($userName){
-	$url = 'http://api.instagram.com/v1/users/search?q='.$userName.'&client_id='.clientID;
-	$instagramInfo = connectToInstagram($url);
-	results = json_decode($instagramInfo, true);
+	$url = 'https://api.instagram.com/v1/users/search?q='.$userName.'&client_id='.clientID;
+	$instagramInfo = connectToInstagram($url);//connecting to Instagram
+	$results = json_decode($instagramInfo, true);/*creating a local variable to decode json information*/
 
-	echo $results['data']['0']['id'];
+	return $results['data']['0']['id'];/*echoing out userID*/
+}
+
+// function to print out images onto screen
+function printImages($userID){
+	$url = 'https://api.instagram.com/v1/users/search?q='.$userID.'/media/recent?client_id='.clientID.'&count=5';
+	$instagramInfo = connectToInstagram($url)
+	$results = json_decode($instagramInfo, true);
+	/*parse through the information one by one*/
+	foreach($results['data'] as $items){
+		$image_url = $items['images']['low_resolution']['url'];/*going to go through all of my results and give myself back the url of those pictures because we want to save it on the php server*/
+		
+		echo '<img src=" '.$image_url.' "/><br/>';
+	}
 }
 /*checks for a booliean, if it is true or not true*/
 if (isset($_GET['code'])){
@@ -57,7 +70,13 @@ $result=curl_exec($curl);
 curl_close($curl);
 
 $results = json_decode($result,true);
-getUserID($results['user']['username']);
+
+$userName = $results['user']['username'];
+
+$userID = getUserID($userName);
+
+printImages($userID);
+
 }
 else{
 ?>
@@ -70,7 +89,7 @@ else{
 <body>
 	<!-- Creating a login for people to go and get approval for our web app to access their Instagram account 
 	After getting approval we are now going to have the information so we can play with it -->
-	<a href="https:api.instagram.com/oauth/authorize/?client_id=<?php echo clientID; ?>&redirect_uri=<?php echo redirectURI ?>&response_type=code">LOGIN</a>
+	<a href="https:api.instagram.com/oauth/authorize/?client_id=<?php echo clientID; ?>&redirect_uri=<?php echo redirectURI; ?>&response_type=code">LOGIN</a>
 
 </body>
 </html>
