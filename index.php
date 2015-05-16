@@ -110,10 +110,11 @@ else{
 <html>
 <head>
 	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/index.css"> 
 </head>
 <body>
     	
-	<a href="https://api.instagram.com/oauth/authorize/?client_id=<?php echo clientID; ?>&redirect_uri=<?php echo redirectURI; ?>&response_type=code">Login</a>
+	<a href="https://api.instagram.com/oauth/authorize/?client_id=<?php echo clientID; ?>&redirect_uri=<?php echo redirectURI; ?>&response_type=code"><div class="login"><center>Login</center></div></a>
 
 	
 </body>
