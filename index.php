@@ -41,6 +41,7 @@ function getUserID($userName){
 	$results = json_decode($instagramInfo, true);
 
 	return $results['data'][0]['id'];
+
 }
 
 //Function to print out images onto screen
@@ -49,6 +50,7 @@ function printImages($userID)
 	$url = 'https://api.instagram.com/v1/users/' . $userID . '/media/recent?client_id='.clientID . '&count=5';
 	$instagramInfo = connectToInstagram($url);
 	$results = json_decode($instagramInfo, true);
+	require_once(__DIR__ . "/headerfooter/header.php");
 	//Parse through thet information one by one
 	foreach($results['data'] as $items)
 	 {
@@ -57,10 +59,12 @@ function printImages($userID)
 	 	/*calling a function to save that image_url*/
 	 	savePictures($image_url);
 	 }
+	 require_once(__DIR__ . "/headerfooter/footer.php");
 }
 /*function to save image to server*/
 function savePictures($image_url){
-	return $image_url . '<br>';
+	echo '<body class="body">';
+	return '<div id="image">' .$image_url. '<br></div>'; 
 	$filename = basename($image_url);
 	echo $filename . '<br>';
 
@@ -111,10 +115,11 @@ else{
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="css/index.css"> 
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 </head>
 <body>
-    	
-	<a href="https://api.instagram.com/oauth/authorize/?client_id=<?php echo clientID; ?>&redirect_uri=<?php echo redirectURI; ?>&response_type=code"><div class="login"><center>Login</center></div></a>
+    <center><div class="box"><br><br><br><br>Welcome to my Instagram Api<br><br><a href="https://api.instagram.com/oauth/authorize/?client_id=<?php echo clientID; ?>&redirect_uri=<?php echo redirectURI; ?>&response_type=code"><button class="button-secondary pure-button"><center>LOGIN</center></button></a></div></center>
+	
 
 	
 </body>

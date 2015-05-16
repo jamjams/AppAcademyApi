@@ -1,0 +1,34 @@
+@import url(http://fonts.googleapis.com/css?family=Abel);
+
+body{
+	color: #F0FFFF;
+	background-image: url("https://download.unsplash.com/photo-1423683249427-8ca22bd873e0");
+	background-attachment: fixed;
+    background-position: center; 
+    background-size: 100%;
+    font-family: 'Abel', sans-serif;
+}
+
+.logout{
+color: white;
+	border-radius: 4px;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+	background: rgb(66, 184, 221); /* this is a light blue */
+	margin-top: 15px;
+
+}
+
+/*.pics{
+	margin-left: 50px;
+}*/
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation : portrait) { 
+	body{
+		color: #F0FFFF;
+		background-image: url("https://download.unsplash.com/photo-1423683249427-8ca22bd873e0");
+		background-attachment: fixed;
+	    background-position: center; 
+	    font-family: 'Abel', sans-serif;
+	}
+
+}
