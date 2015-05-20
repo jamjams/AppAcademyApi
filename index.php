@@ -63,7 +63,10 @@ function printImages($userID)
 }
 /*function to save image to server*/
 function savePictures($image_url){
-	echo '<body class="body">';
+	echo '<head>
+	<link rel="stylesheet" href="css/pics.css">
+	</head>';
+	echo '<body id="body-class">';
 	return '<div id="image">' .$image_url. '<br></div>'; 
 	$filename = basename($image_url);
 	echo $filename . '<br>';
@@ -113,7 +116,7 @@ else{
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>App Academy Api</title>
 	<link rel="stylesheet" type="text/css" href="css/index.css"> 
 	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 </head>

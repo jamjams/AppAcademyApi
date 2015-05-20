@@ -1,20 +1,25 @@
 @import url(http://fonts.googleapis.com/css?family=Abel);
 
-body{
+#body-class{
 	color: #F0FFFF;
-	background-image: url("https://download.unsplash.com/photo-1423683249427-8ca22bd873e0");
+	background-image: url("https://unsplash.imgix.net/photo-1430132594682-16e1185b17c5?fit=crop&fm=jpg&h=700&q=75&w=1050");
 	background-attachment: fixed;
     background-position: center; 
     background-size: 100%;
     font-family: 'Abel', sans-serif;
+    text-align: center;
 }
 
+#image{
+	padding-top: 25px;
+}
 .logout{
 color: white;
 	border-radius: 4px;
 	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 	background: rgb(66, 184, 221); /* this is a light blue */
 	margin-top: 15px;
+	margin-bottom: 15px;
 
 }
 
@@ -30,5 +35,17 @@ color: white;
 	    background-position: center; 
 	    font-family: 'Abel', sans-serif;
 	}
+	#image{
+	padding-top: 25px;
+	}
+.logout{
+	color: white;
+	border-radius: 4px;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+	background: rgb(66, 184, 221); /* this is a light blue */
+	margin-top: 15px;
+	margin-bottom: 15px;
+
+}
 
 }
